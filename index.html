@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Baker Ali - Textile Quality Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --border-color: #374151;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hero-image {
+            width: 250px;
+            height: 290px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+            animation: fadeInRight 3s ease 0.8s both;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            padding: 0.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-degree {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-institution {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--bg-secondary);
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+
+        .experience-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .experience-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 2rem;
+        }
+
+        .experience-item:nth-child(odd)::before {
+            right: -32px;
+        }
+
+        .experience-item:nth-child(even)::before {
+            left: -32px;
+        }
+
+        .experience-position {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-company {
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+
+        .experience-duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: var(--bg-secondary);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .experience-timeline::before {
+                left: 30px;
+            }
+
+            .experience-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+
+            .experience-item::before {
+                left: -32px !important;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Mobile hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">MD Baker Ali</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home">Home</a></li>
+                <li class="nav-item"><a href="#about">About</a></li>
+                <li class="nav-item"><a href="#education">Education</a></li>
+                <li class="nav-item"><a href="#experience">Experience</a></li>
+                <li class="nav-item"><a href="#skills">Skills</a></li>
+                <li class="nav-item"><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>MD Baker Ali</h1>
+                    <div class="subtitle">Textile Quality Expert</div>
+                    <p>Experienced textile professional with 6+ years in circular knitting, quality control, and assurance. Specialized in fabric inspection, team leadership, and implementing effective quality systems in the textile industry.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                        <a href="MD_Baker_Ali_Resume.pdf" class="btn btn-outline" download>
+                                <i class="fas fa-download"></i>
+                                Download CV
+                     </a>
+                    </div>
+                </div>
+                    <div class="hero-image" style="overflow: hidden; background: white;">
+                        <img src="baker.jpg" alt="MD Baker Ali" style="width: 110%; height: 105%; object-fit: contain; border-radius: 50%;">
+                    </div>
+            </div>
+        </div>
+    
+<div style="position: absolute; width: 100%; bottom: 0; left: 0; z-index: -1; overflow: hidden;">
+  <svg viewBox="0 0 1440 320" style="display: block;">
+    <path fill="#2563eb" fill-opacity="0.6">
+      <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,160 C480,320 960,0 1440,160 L1440,320 L0,320 Z;
+        M0,160 C480,0 960,320 1440,160 L1440,320 L0,320 Z;
+        M0,160 C480,320 960,0 1440,160 L1440,320 L0,320 Z" />
+    </path>
+  </svg>
+</div>
+
+</section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <p class="section-subtitle fade-in">
+                A dedicated textile professional committed to excellence in quality assurance and continuous improvement
+            </p>
+            <div class="about-content">
+                <div class="about-stats fade-in">
+                    <div class="stat-card">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Quality Focus</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90+</div>
+                        <div class="stat-label">Team Members Led</div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Career Objective</h3>
+                    <p style="margin-bottom: 2rem; color: var(--text-secondary);">
+                    To secure a responsible position in the Knitting Quality Assurance Department where I can utilise my expertise in fabric quality management, manpower planning, and industrial engineering tools to enhance organisational growth. I aim to contribute towards minimizing fabric rejection, strengthening buyer satisfaction, and improving overall productivity through effective team leadership and continuous process improvement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <h2 class="section-title fade-in">Academic Qualification</h2>
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <div class="education-degree">Bachelor of Science (B.Sc.)</div>
+                    <div class="education-institution">Northern University Bangladesh</div>
+                    <div class="education-details">
+                        <p><strong>Department:</strong> Textile Engineering <br>(Fabric Manufacturing Technology)</p>
+                        <p><strong>Duration:</strong> 3 Years</p>
+                        <p><strong>Passing Year:</strong> 2021</p>
+                        <p><strong>Result:</strong> CGPA 3.15/4.00</p>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in">
+                    <div class="education-degree">Diploma in Engineering</div>
+                    <div class="education-institution">Khanjahan Ali Science & Technology</div>
+                    <div class="education-details">
+                        <p><strong>Department:</strong> Textile Engineering</p>
+                        <p><strong>Duration:</strong> 4 Years</p>
+                        <p><strong>Passing Year:</strong> 2018</p>
+                        <p><strong>Result:</strong> CGPA 3.28/4.00</p>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in">
+                    <div class="education-degree">Secondary School Certificate</div>
+                    <div class="education-institution">Gobra Parvati Bidyapith High School</div>
+                    <div class="education-details">
+                        <p><strong>Department:</strong> Business Studies</p>
+                        <p><strong>Passing Year:</strong> 2014</p>
+                        <p><strong>Result:</strong> GPA 3.56/5.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item fade-in">
+                    <div class="experience-position">Executive</div>
+                    <div class="experience-company">South East Textiles (Pvt) Ltd. (Knitting Unit)</div>
+                    <div class="experience-duration">July 2022 - Present</div>
+                    <div class="experience-location">Gohailbari, Shimulia, Savar, Dhaka</div>
+                    <div class="experience-department">Quality Assurance Department</div>
+                </div>
+                
+                <div class="experience-item fade-in">
+                    <div class="experience-position">Junior Executive</div>
+                    <div class="experience-company">Interstoff Apparels Ltd. (Knitting Unit)</div>
+                    <div class="experience-duration">May 2018 - June 2022</div>
+                    <div class="experience-location">South Pansail, Kashimpur, Gazipur</div>
+                    <div class="experience-department">Quality Assurance Department</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Responsibilities Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title fade-in">Key Responsibilities</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-clipboard-check"></i> Current Role - Executive</h3>
+                    <ul class="skill-list">
+                        <li>Lead quality inspector teams and allocate manpower efficiently</li>
+                        <li>Ensure 100% quality assurance of grey fabrics (sample & bulk)</li>
+                        <li>Monitor yarn and fabric parameters (GSM, Dia, Stitch Length)</li>
+                        <li>Conduct online and offline inspections with detailed reports</li>
+                        <li>Develop and implement SOPs for quality improvement</li>
+                        <li>Coordinate with production, maintenance, and dyeing departments</li>
+                        <li>Maintain quality manuals and update buyer-specific standards</li>
+                        <li>Take preventive and corrective actions to minimize rejections</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tasks"></i> Previous Role - Junior Executive</h3>
+                    <ul class="skill-list">
+                        <li>Supervised knitting QA operations for company compliance</li>
+                        <li>Verified fabric quality before forwarding to dyeing and finishing</li>
+                        <li>Conducted daily manpower planning for Quality teams</li>
+                        <li>Prepared daily, weekly, and monthly quality performance reports</li>
+                        <li>Provided training and feedback to QC and QI staff</li>
+                        <li>Assigned Online QC across knitting machines for quality monitoring</li>
+                        <li>Maintained records of all Quality issues and submitted to management</li>
+                        <li>Assisted in maintaining buyer requirements and machine standards</li>
+                        <li>Followed up with production teams for continuous improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-cogs"></i> Knitting & QA Skills</h3>
+                    <ul class="skill-list">
+                        <li>Circular knitting machine operation & quality control</li>
+                        <li>Grey fabric inspection (defect detection & reporting)</li>
+                        <li>Yarn quality inspection & testing</li>
+                        <li>Grey GSM, Grey Dia and Stitch Length testing</li>
+                        <li>Fabric fault analysis & root cause identification</li>
+                        <li>Online, Offline inspection & shade approval process</li>
+                        <li>Handling buyer-specific QA requirements and audits</li>
+                        <li>SOP development and implementation for QA systems</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-users"></i> Leadership & Management</h3>
+                    <ul class="skill-list">
+                        <li>Manpower allocation and shift planning</li>
+                        <li>Team supervision & monitoring (QC, QI, helpers)</li>
+                        <li>Training, motivating, and skill development</li>
+                        <li>Conflict resolution and team discipline</li>
+                        <li>Strong communication & reporting ability</li>
+                        <li>Leadership & decision making</li>
+                        <li>Problem-solving under pressure</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Machine setting verification</li>
+                        <li>Fabric rejection reduction techniques</li>
+                        <li>Preventive maintenance coordination</li>
+                        <li>ERP-based fabric barcoding & documentation</li>
+                        <li>Statistical Quality Control (SQC) & 5S implementation</li>
+                        <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                        <li>Email & Internet Browsing</li>
+                        <li>Canva (Design & Layout)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-heart"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Patience & hardworking attitude</li>
+                        <li>Punctuality & professional ethics</li>
+                        <li>Adaptability & continuous learning</li>
+                        <li>Attention to detail</li>
+                        <li>Time management</li>
+                        <li>Cross-functional collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Lean Manufacturing</h3>
+                    <p><strong>Northern University Bangladesh</strong></p>
+                    <p>December 5-10, 2020</p>
+                    <p>Specialized training in Lean Manufacturing for Textile Industry</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3>Fire Service & Civil Defense</h3>
+                    <p><strong>Bangladesh Fire Service Training Complex</strong></p>
+                    <p>February 17-18, 2019</p>
+                    <p>Safety training and emergency response certification</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Industrial Internship</h3>
+                    <p><strong>Interstoff Apparels Ltd</strong></p>
+                    <p>February 1 - April 1, 2018</p>
+                    <p>Practical experience in textile manufacturing processes</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>ICT Training</h3>
+                    <p><strong>ICT Training Institute, Narail</strong></p>
+                    <p>July - December 2014</p>
+                    <p>National Skill Standard Basic Course certification</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Proficiency Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Language Proficiency</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-language"></i> Bengali</h3>
+                    <ul class="skill-list">
+                        <li><strong>Reading:</strong> Excellent</li>
+                        <li><strong>Writing:</strong> Excellent</li>
+                        <li><strong>Speaking:</strong> Native</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-globe"></i> English</h3>
+                    <ul class="skill-list">
+                        <li><strong>Reading:</strong> Good</li>
+                        <li><strong>Writing:</strong> Good</li>
+                        <li><strong>Speaking:</strong> Intermediate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <p class="section-subtitle fade-in">
+                Ready to discuss opportunities or have questions about my experience? Let's connect!
+            </p>
+            <div class="contact-grid">
+                <div class="contact-form fade-in">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Send Message</h3>
+                    <form onsubmit="sendEmail(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info fade-in">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Zirani Bazar, Savar, Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+880 1614199210</p>
+                            <p>+880 1902868912</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>knitting0qad@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/md-baker-ali-textilequality/" target="_blank" style="color: var(--primary-color); text-decoration: none;">md-baker-ali-textilequality</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Reference</h2>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div class="education-card fade-in" style="text-align: center;">
+                    <div class="education-degree">Mr. Golam Kibria</div>
+                    <div class="education-institution">Deputy Manager - Knitting</div>
+                    <div class="education-details">
+                        <p><strong>Company:</strong> Interstoff Group</p>
+                        <p><strong>Location:</strong> Chandora, Pollibiddut, Kaliakoir, Gazipur</p>
+                        <p><strong>Contact:</strong> +880 1730728085</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/md-baker-ali-textilequality/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.facebook.com/me.ali.baker" target="_blank" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/me_ali_baker/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:knitting0qad@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+8801614199210" class="social-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 MD Baker Ali. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                Textile Quality Expert | Professional Portfolio
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            const themeToggle = document.querySelector('.theme-toggle i');
+            themeToggle.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handler
+        function sendEmail(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:knitting0qad@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            form.reset();
+            
+            // Show success message
+            alert('Thank you for your message! Your default email client will open to send the message.');
+        }
+
+        // CV Download function
+        function downloadCV() {
+            // Create a simple text version of CV for download
+            const cvContent = `
+MD BAKER ALI
+Textile Quality Expert
+Email: knitting0qad@gmail.com
+Phone: +880 1614199210
+
+EXPERIENCE:
+- Executive, South East Textiles (Pvt) Ltd. (July 2022 - Present)
+- Junior Executive, Interstoff Apparels Ltd. (May 2018 - June 2022)
+
+EDUCATION:
+- B.Sc. in Textile Engineering, Northern University Bangladesh (2021)
+- Diploma in Textile Engineering, Khanjahan Ali Science & Technology (2018)
+
+For complete CV, please contact via email or LinkedIn.
+            `;
+            
+            const blob = new Blob([cvContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'MD_Baker_Ali_Resume.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-item a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .nav-item a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        /* Additional mobile responsiveness */
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .navbar, .hero-buttons, .contact-form, .footer {
+                display: none !important;
+            }
+            
+            .section {
+                padding: 2rem 0 !important;
+                page-break-inside: avoid;
+            }
+            
+            body {
+                font-size: 12pt !important;
+                line-height: 1.4 !important;
+            }
+        }
+    </style>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.background = 'var(--bg-primary)';
+        navMenu.style.position = 'absolute';
+        navMenu.style.top = '100%';
+        navMenu.style.right = '20px';
+        navMenu.style.padding = '1rem';
+        navMenu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        navMenu.style.borderRadius = '10px';
+    });
+</script>
+
+</body>
+</html>
